@@ -1,0 +1,18 @@
+---
+export interface Props {
+  linecap: astroHTML.JSX.SVGAttributes["stroke-linecap"];
+  linejoin: astroHTML.JSX.SVGAttributes["stroke-linejoin"];
+  width: astroHTML.JSX.SVGAttributes["stroke-width"];
+  drawn: string;
+}
+
+const { linecap, linejoin, width, drawn } = Astro.props;
+---
+
+<path
+  stroke-linecap={linecap}
+  stroke-linejoin={linejoin}
+  stroke-width={width}
+  d={drawn}
+>
+</path>

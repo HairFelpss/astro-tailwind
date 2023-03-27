@@ -1,0 +1,20 @@
+---
+export interface Props {
+  className?: string;
+  fill?: astroHTML.JSX.SVGAttributes["fill"];
+  stroke?: astroHTML.JSX.SVGAttributes["stroke"];
+  viewBox?: astroHTML.JSX.SVGAttributes["viewBox"];
+}
+
+const { className, fill, stroke, viewBox } = Astro.props;
+---
+
+<svg
+  class={className}
+  fill={fill}
+  stroke={stroke}
+  viewBox={viewBox}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <slot />
+</svg>

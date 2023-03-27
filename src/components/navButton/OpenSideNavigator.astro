@@ -1,0 +1,22 @@
+---
+export interface Props {
+  title: string;
+  drawer: string;
+  placement: string;
+}
+
+const { title, drawer, placement } = Astro.props;
+---
+
+<button
+  class="block border-b-4 border-transparent p-6 hover:border-red-700"
+  type="button"
+  data-drawer-target={drawer}
+  data-drawer-show={drawer}
+  data-drawer-placement={placement}
+  aria-controls={drawer}
+>
+  <slot />
+
+  <span class="sr-only">{title}</span>
+</button>

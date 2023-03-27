@@ -1,0 +1,356 @@
+---
+import Svg from "@components/Svg/Svg.astro";
+import SvgPath from "@components/Svg/Path.astro";
+
+import Product from "@components/Product/Product.astro";
+
+export interface Props {}
+
+const {} = Astro.props;
+
+const pages = [
+  { number: 1, url: "/", current: true },
+  { number: 2, url: "/", current: false },
+  { number: 3, url: "/", current: false },
+  { number: 4, url: "/", current: false },
+];
+
+const select = [
+  { value: "Title, DESC", text: "Title, DESC" },
+  { value: "Title, DESC", text: "Title, ASC" },
+  { value: "Title, ASC", text: "Price, DESC" },
+  { value: "Title, ASC", text: "Price, ASC" },
+];
+
+const products = [
+  {
+    url: "/product/short",
+    imgSrc: "https://m.media-amazon.com/images/I/61eV0P6MbQL._AC_SL1280_.jpg",
+    imgAlt: "",
+    currentValue: "£24.00 GBP",
+    name: "Basic Tee",
+  },
+  {
+    url: "/product/short",
+    imgSrc: "https://m.media-amazon.com/images/I/61eV0P6MbQL._AC_SL1280_.jpg",
+    imgAlt: "",
+    currentValue: "£24.00 GBP",
+    name: "Basic Tee",
+  },
+  {
+    url: "/product/short",
+    imgSrc: "https://m.media-amazon.com/images/I/61eV0P6MbQL._AC_SL1280_.jpg",
+    imgAlt: "",
+    currentValue: "£24.00 GBP",
+    name: "Basic Tee",
+  },
+  {
+    url: "/product/short",
+    imgSrc: "https://m.media-amazon.com/images/I/61eV0P6MbQL._AC_SL1280_.jpg",
+    imgAlt: "",
+    currentValue: "£24.00 GBP",
+    name: "Basic Tee",
+  },
+];
+---
+
+<section>
+  <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
+    <header class="text-center">
+      <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
+        Product Collection
+      </h2>
+
+      <p class="max-w-md mx-auto mt-4 text-gray-500">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+        praesentium cumque iure dicta incidunt est ipsam, officia dolor fugit
+        natus?
+      </p>
+    </header>
+
+    <div class="mt-8 sm:flex sm:items-center sm:justify-between">
+      <div class="block sm:hidden">
+        <button
+          class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
+        >
+          <span class="text-sm font-medium"> Filters & Sorting</span>
+
+          <Svg
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            className="h-4 w-4"
+          >
+            <SvgPath
+              linecap="round"
+              linejoin="round"
+              drawn="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </Svg>
+        </button>
+      </div>
+
+      <div class="hidden sm:flex sm:gap-4">
+        <div class="relative">
+          <details class="group [&_summary::-webkit-details-marker]:hidden">
+            <summary
+              class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
+            >
+              <span class="text-sm font-medium"> Availability</span>
+
+              <span class="transition group-open:-rotate-180">
+                <Svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="h-4 w-4"
+                >
+                  <SvgPath
+                    linecap="round"
+                    linejoin="round"
+                    drawn="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </Svg>
+              </span>
+            </summary>
+
+            <div
+              class="z-50 group-open:absolute group-open:top-auto group-open:mt-2 ltr:group-open:left-0"
+            >
+              <div class="w-96 rounded border border-gray-200 bg-white">
+                <header class="flex items-center justify-between p-4">
+                  <span class="text-sm text-gray-700"> 0 Selected</span>
+
+                  <button
+                    type="button"
+                    class="text-sm text-gray-900 underline underline-offset-4"
+                  >
+                    Reset
+                  </button>
+                </header>
+
+                <ul class="space-y-1 border-t border-gray-200 p-4">
+                  <li>
+                    <label
+                      for="FilterInStock"
+                      class="inline-flex items-center gap-2"
+                    >
+                      <input
+                        type="checkbox"
+                        id="FilterInStock"
+                        class="h-5 w-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700">
+                        In Stock (5+)
+                      </span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label
+                      for="FilterPreOrder"
+                      class="inline-flex items-center gap-2"
+                    >
+                      <input
+                        type="checkbox"
+                        id="FilterPreOrder"
+                        class="h-5 w-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700">
+                        Pre Order (3+)
+                      </span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label
+                      for="FilterOutOfStock"
+                      class="inline-flex items-center gap-2"
+                    >
+                      <input
+                        type="checkbox"
+                        id="FilterOutOfStock"
+                        class="h-5 w-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700">
+                        Out of Stock (10+)
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="relative">
+          <details class="group [&_summary::-webkit-details-marker]:hidden">
+            <summary
+              class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
+            >
+              <span class="text-sm font-medium"> Price</span>
+
+              <span class="transition group-open:-rotate-180">
+                <Svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="h-4 w-4"
+                >
+                  <SvgPath
+                    linecap="round"
+                    linejoin="round"
+                    drawn="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </Svg>
+              </span>
+            </summary>
+
+            <div
+              class="z-50 group-open:absolute group-open:top-auto group-open:mt-2 ltr:group-open:left-0"
+            >
+              <div class="w-96 rounded border border-gray-200 bg-white">
+                <header class="flex items-center justify-between p-4">
+                  <span class="text-sm text-gray-700">
+                    The highest price is $600
+                  </span>
+
+                  <button
+                    type="button"
+                    class="text-sm text-gray-900 underline underline-offset-4"
+                  >
+                    Reset
+                  </button>
+                </header>
+
+                <div class="border-t border-gray-200 p-4">
+                  <div class="flex justify-between gap-4">
+                    <label
+                      for="FilterPriceFrom"
+                      class="flex items-center gap-2"
+                    >
+                      <span class="text-sm text-gray-600">$</span>
+
+                      <input
+                        type="number"
+                        id="FilterPriceFrom"
+                        placeholder="From"
+                        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                      />
+                    </label>
+
+                    <label for="FilterPriceTo" class="flex items-center gap-2">
+                      <span class="text-sm text-gray-600">$</span>
+
+                      <input
+                        type="number"
+                        id="FilterPriceTo"
+                        placeholder="To"
+                        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="hidden sm:block">
+        <label for="SortBy" class="sr-only">SortBy</label>
+
+        <select id="SortBy" class="h-10 rounded border-gray-300 text-sm">
+          <option>Sort By</option>
+
+          {
+            select.map(({ value, text }) => (
+              <option value={value}>{text}</option>
+            ))
+          }
+        </select>
+      </div>
+    </div>
+
+    <ul class="grid gap-4 mt-1 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        products.map(({ url, imgSrc, imgAlt, currentValue, name }) => (
+          <li>
+            <Product
+              url={url}
+              imgSrc={imgSrc}
+              imgAlt={imgAlt}
+              currentValue={currentValue}
+              name={name}
+            />
+          </li>
+        ))
+      }
+    </ul>
+
+    <ol class="mt-8 flex justify-center gap-1 text-xs font-medium">
+      <li>
+        <a
+          href="#"
+          class="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100"
+        >
+          <span class="sr-only">Prev Page</span>
+
+          <Svg viewBox="0 0 20 20" fill="currentColor" className="h-3 w-3">
+            <SvgPath
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              drawn="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+            />
+          </Svg>
+        </a>
+      </li>
+
+      {
+        pages.map(({ url, number, current }) => (
+          <li>
+            <a
+              href={url}
+              class={`block h-8 w-8 rounded text-center leading-8 ${
+                !current
+                  ? "border border-gray-100"
+                  : "border-black bg-black text-white"
+              }`}
+            >
+              {number}
+            </a>
+          </li>
+        ))
+      }
+
+      <li>
+        <a
+          href="#"
+          class="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100"
+        >
+          <span class="sr-only">Next Page</span>
+
+          <Svg viewBox="0 0 20 20" fill="currentColor" className="h-3 w-3">
+            <SvgPath
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              drawn="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            />
+          </Svg>
+        </a>
+      </li>
+    </ol>
+
+    <div class="mt-8">
+      <p class="text-right text-sm text-gray-500">
+        Showing <span> {products.length}</span> of {products.length}
+      </p>
+    </div>
+  </div>
+</section>

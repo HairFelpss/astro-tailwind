@@ -1,0 +1,14 @@
+---
+export interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<a
+  href={url}
+  class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
+>
+  <slot />
+</a>

@@ -1,0 +1,127 @@
+---
+import LinkAsButton from "@components/Button/LinkAsButton.astro";
+
+export interface Props {
+  lineTitle: string;
+  lineApresentation: string;
+  callToAction: string;
+  productTitle: string;
+  productApresentation: string;
+  productPrice: string;
+  firstImage: string;
+  firstImageAlt: string;
+  secondImage: string;
+  secondImageAlt: string;
+}
+
+const {
+  lineTitle,
+  lineApresentation,
+  callToAction,
+  productTitle,
+  productApresentation,
+  productPrice,
+  firstImage,
+  firstImageAlt,
+  secondImage,
+  secondImageAlt,
+} = Astro.props;
+---
+
+<section>
+  <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
+      <div class="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
+        <div class="max-w-md mx-auto text-center lg:text-left">
+          <header>
+            <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
+              {lineTitle}
+            </h2>
+
+            <p class="mt-4 text-gray-500">
+              {lineApresentation}
+            </p>
+          </header>
+
+          <LinkAsButton
+            className="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring"
+            url="/store"
+          >
+            {callToAction}
+          </LinkAsButton>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 lg:py-8">
+        <ul class="grid grid-cols-2 gap-4">
+          <li>
+            <a href="#" class="group block">
+              <div class="relative h-[350px] sm:h-[450px]">
+                <img
+                  src={firstImage}
+                  alt={firstImageAlt}
+                  class="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
+                />
+
+                <img
+                  src={secondImage}
+                  alt={secondImageAlt}
+                  class="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100"
+                />
+              </div>
+
+              <div class="mt-3 flex justify-between text-sm">
+                <div>
+                  <h3
+                    class="text-gray-900 group-hover:underline group-hover:underline-offset-4"
+                  >
+                    {productTitle}
+                  </h3>
+
+                  <p class="mt-1.5 max-w-[45ch] text-xs text-gray-500">
+                    {productApresentation}
+                  </p>
+                </div>
+
+                <p class="text-gray-900">{productPrice}</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group block">
+              <div class="relative h-[350px] sm:h-[450px]">
+                <img
+                  src={firstImage}
+                  alt={firstImageAlt}
+                  class="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
+                />
+
+                <img
+                  src={secondImage}
+                  alt={secondImageAlt}
+                  class="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100"
+                />
+              </div>
+
+              <div class="mt-3 flex justify-between text-sm">
+                <div>
+                  <h3
+                    class="text-gray-900 group-hover:underline group-hover:underline-offset-4"
+                  >
+                    {productTitle}
+                  </h3>
+
+                  <p class="mt-1.5 max-w-[45ch] text-xs text-gray-500">
+                    {productApresentation}
+                  </p>
+                </div>
+
+                <p class="text-gray-900">{productPrice}</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
